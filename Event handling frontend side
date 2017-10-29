@@ -1,0 +1,27 @@
+for(var i = 0; i < buttonElements.length; i++) {    
+    buttonElements[i].addEventListener('click', callbackBack(i));
+    document.body.appendChild(buttonElements[i]);
+  }
+
+function upvoteCallBack(){
+    function upvote() {
+        let index = 0;
+        Httprequest.onreadystatechange = function(){
+            if (Httprequest.readyState === XMLHttpRequest.DONE) {
+                if (Httprequest.status === 200) {
+                    console.log(Httprequest.response);
+                   postVoteNumberTag[0].textContent = JSON.parse(Httprequest.response).score;
+                }
+            }
+        };
+        Httprequest.open('PUT','https://time-radish.glitch.me/posts/0/upvote');
+        Httprequest.send();   
+    }
+    return upvote();
+}
+
+
+//onclick:	Use this to invoke JavaScript upon clicking (a link, or form boxes)
+//onmouseover:	Use this to invoke JavaScript if the mouse passes by some link
+//onmouseout:	Use this to invoke JavaScript if the mouse goes pass some link
+//onunload:	Use this to invoke JavaScript right after someone leaves this page.
