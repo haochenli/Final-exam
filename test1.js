@@ -13,6 +13,17 @@ function sumMatrix(matrix) {
   }
   return sum;
 }
+function sumMatrix3(matrix) {
+  let sum = 0 ;
+  matrix.forEach(function(array) {
+   array.forEach((value=>{
+     sum+=value;
+     return;
+   })) 
+   return;
+  });
+  return sum;
+}
 
 function sumMatrix2(matrix) {
   let sum = 0;
@@ -28,4 +39,5 @@ function sumMatrix2(matrix) {
 
 console.log(sumMatrix(matrix));
 console.log(sumMatrix2(matrix));
+console.log(sumMatrix3(matrix));
 
